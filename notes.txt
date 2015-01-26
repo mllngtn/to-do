@@ -1,0 +1,22 @@
+Why use "controller as"?
+
+	It makes it more readable - instead of using $scope all the time, everything becomes dotted (main.title, for example), which means you can track everything back to its controller more easily.
+	"Prevents scope bleed when using multiple nested controllers"
+
+Why "var vm = this"?
+
+	Because the meaning of "this" can change depending on context...
+	"The this keyword is contextual and when used within a function inside a controller may change its context. Capturing the context of this avoids encountering this problem."
+	
+
+TASKZ	
+	
+	karma, protractor, jasmine: unit testing
+		Write a test suite
+		add some tests for new features
+		add those features!
+	
+	Research and create some:
+		directives
+		multiple controllers
+		$scope and what it does
