@@ -9,26 +9,26 @@
     <script type="text/javascript" src="js/main.js"></script>
 </head>
 
-<body ng-app="app" ng-controller="MainController as main">
+<body ng-app="app" ng-controller="MainController">
 
 	<div class="container">
 	
         <h1>To Do List</h1>
 		<br/>
 	
-	    <form name="main.addForm" ng-submit="main.addEvent()" class="form">
+	    <form name="addForm" ng-submit="addEvent()" class="form">
             <label>Day&nbsp;&nbsp;&nbsp;</label>
-			<select ng-model="main.new.day" required><option ng-repeat="day in main.days" value="{{day.name}}">{{day.name}}</option></select>
+			<select ng-model="new.day" required><option ng-repeat="day in days" value="{{day.name}}">{{day.name}}</option></select>
 			<br/>
 			<br/>
 				
 	        <label>To do&nbsp;</label>
-	        <input type="text" ng-model="main.new.text" required/>
+	        <input type="text" ng-model="new.text" required/>
 			<br/>
 			<br/>	
 	            
 			<label>Time&nbsp;&nbsp;</label>
-	     	<input type="time" ng-model="main.new.time" placeholder="HH:mm" min="00:00" max="23:59" />
+	     	<input type="time" ng-model="new.time" placeholder="HH:mm" min="00:00" max="23:59" />
 			<br/>
 			<br/>	
 				
@@ -37,20 +37,20 @@
 			<br/>
 			<br/>
 			
-			{{main.successMessage}}
+			{{successMessage}}
 	    </form>
 		
-		<div id class="day" ng-repeat="day in main.days">	
+		<div id class="day" ng-repeat="day in days">	
 			<h3>{{day.name}}</h3>
 			<span ng-show="!day.array.length">No reminders</span>
 			<ul>
 				<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
-					<button ng-click="main.delete(event, day.name)">x</button>
+					<button ng-click="delete(event, day.name)">x</button>
 				</li>
 				<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
-					<button ng-click="main.delete(event, day.name)">x</button>
+					<button ng-click="delete(event, day.name)">x</button>
 				</li>
 			</ul>	
 		</div>

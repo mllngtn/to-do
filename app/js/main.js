@@ -3,13 +3,13 @@ angular.module('app', []);
 
 angular.module('app').controller("MainController", function($scope){
     
-	var vm = this;
+	var $scope = $scope;
 	
-	vm.title = 'To Do List';
+	$scope.title = 'To Do List';
 	
-	vm.successMessage = '\xA0';
+	$scope.successMessage = '\xA0';
 					
-	vm.days = [
+	$scope.days =  [
 		
 		{
 			name: "Monday",
@@ -48,33 +48,33 @@ angular.module('app').controller("MainController", function($scope){
 				
 	];
 	
-	vm.new = {};
+	$scope.new = {};
 	
-	vm.today = '';
+	$scope.today = '';
 		
-	vm.addEvent = function() {		
+	$scope.addEvent = function(){		
 		
 		var hasMatched;
 		
-		angular.forEach(vm.days, function(day) {
+		angular.forEach($scope.days, function(day) {
 						
-				if (vm.new.day == day.name) {	
-					day.array.push(vm.new);
-					vm.successMessage = "Thank you! " + vm.new.day + "'s list has been updated";
-					vm.new = {};
+				if ($scope.new.day == day.name) {	
+					day.array.push($scope.new);
+					$scope.successMessage = "Thank you! " + $scope.new.day + "'s list has been updated";
+					$scope.new = {};
 					hasMatched = YES;
 					
 				}
 				
 				if (!hasMatched) {
-					vm.successMessage = "Choose a day, you moron!";
+					$scope.successMessage = "Choose a day, you moron!";
 				}	
 		});
 	};
 			
-	vm.delete = function(event, when) {
+	$scope.delete = function(event, when) {
 				
-		angular.forEach(vm.days, function(day) {
+		angular.forEach($scope.days, function(day) {
 					
 			if (when == day.name) {
 								
