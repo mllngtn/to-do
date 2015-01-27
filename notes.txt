@@ -20,3 +20,57 @@ TASKZ
 		directives
 		multiple controllers
 		$scope and what it does
+		
+		
+
+1) TURN MY DAYS OF THE WEEK INTO A FACTORY (https://thinkster.io/egghead/ngfilter/)
+
+2) RE-ORDER TASKS BY DRAGGING-AND-DROPPING IN THE DOM
+
+3) DIRECTIVES: PROGRAMMATICALLY CHANGE AN ELEMENT'S ATTRIBUTES (https://thinkster.io/egghead/useful-behaviors/)
+
+
+
+What it does right now:
+
+
+1) Array of days
+
+2) Add an untimed task to a day
+
+3) Add a timed task to a day
+
+4) Error message if day or task name are undefined
+
+5) timed tasks display underneath untimed tasks, and are presented in time order
+
+6) Delete a task
+
+
+What it should also do:
+
+7) drag-and-drop a task into a different day array
+
+8) drag-and-drop an untimed task to a different position on its untimed task-list
+
+9) edit (or delete) the time on a task
+
+10) edit (but NOT delete) the task name
+
+11) Hide the day divs when they are empty
+
+12) Allow tasks without days to be added to a general 'to-do' list at the top
+
+
+STUFF TO SPLIT INTO SEPARATE FILES:
+
+1) add tasks
+
+2) delete tasks
+
+3) drag-and-drop
+
+4) 
+
+
+

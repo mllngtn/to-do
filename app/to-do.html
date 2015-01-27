@@ -49,7 +49,7 @@
 					<button ng-click="main.delete(event, day.name)">x</button>
 				</li>
 				<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time">
-					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time}} {{event.text}}
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
 					<button ng-click="main.delete(event, day.name)">x</button>
 				</li>
 			</ul>	
