@@ -2,9 +2,7 @@
 angular.module('app', []);
 
 angular.module('app').controller("MainController", function($scope){
-    
-	var $scope = $scope;
-	
+    	
 	$scope.title = 'To Do List';
 	
 	$scope.successMessage = '\xA0';
