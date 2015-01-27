@@ -1,3 +1,4 @@
+  
 angular.module('app').controller("removeEvent", function($scope){
 	
 	$scope.delete = function(event, when) {

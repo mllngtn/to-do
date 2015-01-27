@@ -1,3 +1,4 @@
+
 angular.module('app').controller("addEvent", function($scope){
 	
 	$scope.successMessage = '\xA0';
