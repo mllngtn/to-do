@@ -6,17 +6,20 @@
 	<title>To Do List</title>
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
 	<script type="text/javascript" src="angular/angular.js"></script>
-    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/setup.js"></script>
+    <script type="text/javascript" src="js/addEvent.js"></script>
+    <script type="text/javascript" src="js/removeEvent.js"></script>
 </head>
 
-<body ng-app="app" ng-controller="MainController">
+<body ng-app="app" ng-controller="dataCtrl">
 
 	<div class="container">
 	
         <h1>To Do List</h1>
 		<br/>
 	
-	    <form name="addForm" ng-submit="addEvent()" class="form">
+	
+	    <form name="addForm" ng-controller="addEvent" ng-submit="addEvent()" class="form">
             <label>Day&nbsp;&nbsp;&nbsp;</label>
 			<select ng-model="new.day" required><option ng-repeat="day in days" value="{{day.name}}">{{day.name}}</option></select>
 			<br/>
@@ -39,18 +42,18 @@
 			
 			{{successMessage}}
 	    </form>
-		
+				
 		<div id class="day" ng-repeat="day in days">	
 			<h3>{{day.name}}</h3>
 			<span ng-show="!day.array.length">No reminders</span>
 			<ul>
 				<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
-					<button ng-click="delete(event, day.name)">x</button>
+					<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>
 				</li>
 				<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
-					<button ng-click="delete(event, day.name)">x</button>
+					<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>
 				</li>
 			</ul>	
 		</div>
