@@ -11,7 +11,7 @@
     <script type="text/javascript" src="js/ctrl-removeEvent.js"></script>
 </head>
 
-<body ng-app="app" ng-controller="dataCtrl">
+<body ng-app="app" ng-controller="addEvent">
 
 	<div class="container">
 	
@@ -19,19 +19,19 @@
 		<br/>
 	
 	
-	    <form name="addForm" ng-controller="addEvent" ng-submit="addEvent()" class="form">
+	    <form name="addForm" ng-submit="addEvent()" class="form">
             <label>Day&nbsp;&nbsp;&nbsp;</label>
-			<select ng-model="new.day" required><option ng-repeat="day in days" value="{{day.name}}">{{day.name}}</option></select>
+			<select ng-model="input.day" required><option ng-repeat="day in days" value="{{day.name}}">{{day.name}}</option></select>
 			<br/>
 			<br/>
 				
 	        <label>To do&nbsp;</label>
-	        <input type="text" ng-model="new.text" required/>
+	        <input type="text" ng-model="input.text" required/>
 			<br/>
 			<br/>	
 	            
 			<label>Time&nbsp;&nbsp;</label>
-	     	<input type="time" ng-model="new.time" placeholder="HH:mm" min="00:00" max="23:59" />
+	     	<input type="time" ng-model="input.time" placeholder="HH:mm" min="00:00" max="23:59" />
 			<br/>
 			<br/>	
 				

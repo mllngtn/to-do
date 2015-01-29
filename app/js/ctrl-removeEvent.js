@@ -1,6 +1,8 @@
   
-angular.module('app').controller("removeEvent", function($scope){
-	
+angular.module('app').controller("removeEvent", function($scope, weekService){
+
+	$scope.days = weekService.days;
+
 	$scope.delete = function(event, when) {
 				
 		angular.forEach($scope.days, function(day) {

@@ -1,47 +1,47 @@
 
-angular.module('app', [ ]);
+var app = angular.module('app', [ ]);
 
-angular.module('app').controller("dataCtrl", function($scope){
-    	
-	$scope.title = 'To Do List';
-						
-	$scope.days =  [
-		
+app.service( 'weekService', [ '$rootScope', function( $rootScope ) {
+   var week = {
+	   	   
+     days: [
 		{
 			name: "Monday",
 			array: [ ]
 		},
-		
+
 		{ 
 			name: "Tuesday",
 			array: [ ]
 		},
-		
+
 		{ 
 			name: "Wednesday",
 			array: [ ]
 		},
-		
+
 		{ 
 			name: "Thursday",
 			array: [ ]
 		},
-		
+
 		{ 
 			name: "Friday",
 			array: [ ]
 		},
-		
+
 		{ 
 			name: "Saturday",
 			array: [ ]
 		},
-		
+
 		{ 
 			name: "Sunday",
 			array: [ ]
 		},
-				
-	];	
-					
-});
+     ],
+	  
+   }
+ 
+   return week;
+ }]);
