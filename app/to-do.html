@@ -46,7 +46,7 @@
 		<div id class="day" ng-repeat="day in days">	
 			<h3>{{day.name}}</h3>
 			<span ng-show="!day.array.length">No reminders</span>
-			<ul>
+			<ul ondrop="drop(event)" ondragover="allowDrop(event)">
 				<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
 					<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>

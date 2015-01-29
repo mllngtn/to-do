@@ -1,155 +1,116 @@
-describe("An AngularJS test suite", function () {
-	
-	it('should have tests', function () {
-	
-		expect(true).toBe(true);
-		
-	});
-	
-});
-
 describe('addEvent', function(){
+	
+	beforeEach(function (){
+	 
+    	 input = {day: "Monday", text: "Do the washing up", time: "18:00"};
+		 
+    	 badInput = {day: "", text: "Do the washing up", time: "18:00"};
+		 	  		  
+		 module('app');
+	 
+		 inject(function($rootScope, $controller ) {
+			  $scope = $rootScope.$new();
+			   
+			  ctrl = $controller('addEvent', {
+					  $scope: $scope,
+					  input: input
+			  });			   
+		   
+		  });
+ 	});
 	
 
 	it('should be called by addForm', function () {
 		
 		
-		
+		 
 	});
-		
 	
-});
-
-
-/*describe('addEvent', function(){
-
- 	 var $scope, ctrl, ctrl2, days;
-	 
-	 beforeEach(function (){
-		 
-	     input = [
-	 		  { day : 'Monday' }, 
-	 		  { task : 'Do the washing up' },
-	 	  ];
-		  		  
-		 module('app');
-		 
-		 inject(function($rootScope, $controller, _$timeout_) {
-			   $scope = $rootScope.$new();
-			   
-			   ctrl = $controller('addEvent', {
-			           $scope: $scope,
-			  		   input: input
-			   });			   
-			   
-		 });
-	 });
-	 
-	 it('should place the user input from addForm into the correct array in dataCtrl.days', function() { 
-	 
-		 	$scope.input = input;
-			
-			$scope.days = days;
-				 
-	 		$scope.addEvent();
-									
-			angular.forEach($scope.days, function(day) { 
-				
-				if (day.name == 'Monday') {
-					expect(day.array).toBe(input)
-				} else return;
-			
-			});
-			
-	 
-	 });
-});
-
-/*
-
-describe('addEvent', function(){
-
-    beforeEach(module('app'));
 	
-	var createController;
-
-	var scope = {};
-  	  
-	beforeEach(inject(function ($controller) {
-	  
-	  createController = function() {
-	
-		  return $controller('addEvent', {
-			  '$scope': scope 
-		  });
-	  };
-	  	  
-	controller = createController();
-	  
-	  
-	}));
-	  	
-    input = [
-		  { day : 'Monday' }, 
-		  { task : 'Do the washing up' },
-	  ];
+	it('should place the user input from addForm into the correct day array, and should congratulate the user in such cases', function () {
 		
-	it('should place the user input from addForm into the correct array in dataCtrl.days', inject(function(addEvent) { 	
+		$scope.input = input;
 		
-		scope.input = input;
-		
-		scope.addEvent(input);
+		inputObj = [input];				
 								
-  	   	expect(scope.input).toBe(input); 
-		
-		angular.forEach(scope.days, function(day) { 
-				
+		$scope.addEvent( );
+								
+		angular.forEach($scope.days, function(day) { 
+						
 			if (day.name == 'Monday') {
-				expect(day.array).toBe(input)
+				expect(day.array).toEqual(inputObj)
 			} else return;
-			
 		});
 		
-  	}));
+		expect($scope.successMessage).toBe("Thank you! Monday's list has been updated");
+		
+	});
 	
+	it('should not pass any user input that does not specify a day, and should pass an error message in such cases', function () {
+		
+		$scope.input = badInput;
+										
+		$scope.addEvent( );
+												
+		angular.forEach($scope.days, function(day) { 
+				expect(day.array).toEqual([ ])
+		});	
+		
+		expect($scope.successMessage).toBe("Choose a day, you moron!");
+		 
+	});
+		
 });
 
-/*
-describe("Address Wizard : ", function () {
 
-  beforeEach(module('app'));
-  beforeEach(module('app.services'));
+describe('removeEvent', function(){
+	
+	beforeEach(function (){
+	 
+        days = {
+  		  	name: "Monday",
+   			array: [
+				{
+					day: "Monday", text: "Do the washing up", time: "07:00"
+				}, 
+				{
+					day: "Monday", text: "Have some lunch", time: "12:00"
+				}, 
+				{
+					day: "Monday", text: "Practice harmonica", time: ""
+				} 
+			]
+   		},
+						 	  		  
+		 module('app');
+	 
+		 inject(function($rootScope, $controller ) {
+			  $scope = $rootScope.$new();
+			   
+			  ctrl = $controller('removeEvent', {
+					  $scope: $scope,
+			  });			   
+		   
+		  });
+ 	});
+	
 
-  var address = {};
-  address.addressLine1 = "1";
-  address.addressLine2 = "2";
-  address.addressLine3 = "3";
-  address.city = "london";
-  address.postcode = "wr2";
+	it('should remove a specific event - and only that event - when called upon', function () {
+		
+		$scope.days = [days];					
+						
+		when = days.array[1].day;
+								
+		$scope.delete(days.array[1], when);
+		
+		console.log(days.array);
+				
+		expect(days.array.length).toEqual(2);
+		
+		expect(days.array[0].text).toBe("Do the washing up");
+		
+		expect(days.array[1].text).toBe("Practice harmonica");
+		 
+	});
 
-  it('formats pickup address', inject(function (Booking, AddressWizard) {
-
-    Booking.pickup = address;
-
-    expect(AddressWizard.formatAddress(Booking.pickup)).toEqual({
-      addressLine1 : '1 2 3',
-      city : 'london',
-      postcode : 'wr2'
-    });
-
-  }));
-
-  it('formats dropoff address', inject(function (Booking, AddressWizard) {
-
-    Booking.dropoff = address;
-
-    expect(AddressWizard.formatAddress(Booking.dropoff)).toEqual({
-      addressLine1 : '1 2 3',
-      city : 'london',
-      postcode : 'wr2'
-    });
-
-  }));
-
-}); 
-*/
+});

@@ -38,44 +38,48 @@ What it does right now:
 	Tested: done
 
 2) Add an untimed task to a day
-	Tested: 
+	Tested: done
 
 3) Add a timed task to a day
-	Tested:
+	Tested: done
 
-4) Error message if day or task name are undefined
-	Tested:
+4) Error message if day is undefined
+	Tested: done
+	
+5) Success message if day is defined
+	Tested: done
+	
 
-5) timed tasks display underneath untimed tasks, and are presented in time order
-	Tested:
+6) timed tasks display underneath untimed tasks, and are presented in time order
+	Tested: not needed (this is the view, not a unit test)
 
-6) Delete a task
-	Tested:
+7) Delete a task
+	Tested: done
 
 
 What it should also do:
 
-7) drag-and-drop a task into a different day array
+8) drag-and-drop a task into a different day array
 	Tested:
 	Made:
 
-8) drag-and-drop an untimed task to a different position on its untimed task-list
+9) drag-and-drop an untimed task to a different position on its untimed task-list
 	Tested:
 	Made:
 	
-9) edit (or delete) the time on a task
+10) edit (or delete) the time on a task
 	Tested:
 	Made:
 	
-10) edit (but NOT delete) the task name
+11) edit (but NOT delete) the task name
 	Tested:
 	Made:
 	
-11) Hide the day divs when they are empty
+12) Hide the day divs when they are empty
 	Tested:
 	Made:
 	
-12) Allow tasks without days to be added to a general 'to-do' list at the top
+13) Allow tasks without days to be added to a general 'to-do' list at the top
 	Tested:
 	Made:
 	
