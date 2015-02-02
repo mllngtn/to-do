@@ -6,9 +6,12 @@
 	<title>To Do List</title>
 	<link rel="stylesheet" href="css/main.css" type="text/css" />
 	<script type="text/javascript" src="angular/angular.js"></script>
+	
     <script type="text/javascript" src="js/appSetup.js"></script>
     <script type="text/javascript" src="js/ctrl-addEvent.js"></script>
     <script type="text/javascript" src="js/ctrl-removeEvent.js"></script>
+    <script type="text/javascript" src="js/ctrl-dragDrop.js"></script>
+	
 </head>
 
 <body ng-app="app" ng-controller="addEvent">
@@ -43,19 +46,26 @@
 			{{successMessage}}
 	    </form>
 				
-		<div id class="day" ng-repeat="day in days">	
-			<h3>{{day.name}}</h3>
+		<div id class="day" ng-repeat="day in days" ng-controller="DragDropCtrl">
+			
+			<div class="bin" droppable drop="handleDrop" bin="bin" id="{{day.name}}" >
+				
+				<h3>{{day.name}}</h3>
+			
+			</div>
+			
 			<span ng-show="!day.array.length">No reminders</span>
-			<ul ondrop="drop(event)" ondragover="allowDrop(event)">
-				<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time">
+			<ul >
+				<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time" class="item" id="{{event.text}}" draggable item="item">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
 					<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>
 				</li>
-				<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time">
+				<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" class="item" id="{{event.text}}" draggable item="item">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
 					<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>
 				</li>
 			</ul>	
+			
 		</div>
 						
 </body>

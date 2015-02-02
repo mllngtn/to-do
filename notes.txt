@@ -1,3 +1,16 @@
+
+1) Is there a more elegant way than [ctrl-dragDrop.js; line 106] to reference objects within objects within an array? (was trying to do it with dot notation - days.day.array works; days.day.array.text does not work)
+
+2) How to test DOM manipulation? (for example, drag and drop)
+
+3) Why do the Tristar tests not have to inject ($rootScope, $controller) all the damn time?
+
+
+
+
+
+
+
 Why use "controller as"?
 
 	It makes it more readable - instead of using $scope all the time, everything becomes dotted (main.title, for example), which means you can track everything back to its controller more easily.

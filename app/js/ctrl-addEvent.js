@@ -1,4 +1,4 @@
-angular.module('app').controller("addEvent", function($scope, weekService){
+app.controller("addEvent", function($scope, weekService){
 	
 	$scope.days = weekService.days;
 			
