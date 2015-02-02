@@ -77,6 +77,27 @@ input {
 	width:150px;
 }
 
+.editableEvent {
+	text-decoration:none;
+	border: 0;
+	background-color:transparent;
+	font-family: "Roboto-Light", Verdana, Geneva, sans-serif;
+	font-size:1em;
+	color: #636363;
+	text-align:left;
+}
+
+.editableEvent-time {
+	text-decoration:none;
+	border: 0;
+	background-color:transparent;
+	font-family: "Roboto-Light", Verdana, Geneva, sans-serif;
+	font-size:1em;
+	color: #636363;
+	text-align:left;
+}
+
+
 select {
 	width:150px;
     background: transparent;
@@ -114,6 +135,13 @@ li {
 	padding-top:0.5em;
 	padding-bottom:0.5em;
 	background-color:#f8e0d4;
+}
+
+.btn {
+	float:center;
+	margin-top:0;
+	margin-bottom:0;
+	padding-bottom:0;
 }
 
 li button {

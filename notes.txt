@@ -10,17 +10,18 @@
 
 
 
+TO DOOM
 
-Why use "controller as"?
+ANGULAR UI ROUTER - router.js - an add-on module for angular
 
-	It makes it more readable - instead of using $scope all the time, everything becomes dotted (main.title, for example), which means you can track everything back to its controller more easily.
-	"Prevents scope bleed when using multiple nested controllers"
+HOW TO PROPERLY NEST CONTROLLERS? - Scope inheritance. 
 
-Why "var vm = this"?
+TESTS: test to make sure that what I've done is changing the DOM! Can test the text being shown by an element, for example.
 
-	Because the meaning of "this" can change depending on context...
-	"The this keyword is contextual and when used within a function inside a controller may change its context. Capturing the context of this avoids encountering this problem."
-	
+
+
+
+
 
 TASKZ	
 	
@@ -34,7 +35,8 @@ TASKZ
 		multiple controllers
 		$scope and what it does
 		
-		
+	
+
 
 1) TURN MY DAYS OF THE WEEK INTO A FACTORY (https://thinkster.io/egghead/ngfilter/)
 
@@ -42,6 +44,17 @@ TASKZ
 
 3) DIRECTIVES: PROGRAMMATICALLY CHANGE AN ELEMENT'S ATTRIBUTES (https://thinkster.io/egghead/useful-behaviors/)
 
+
+
+Why use "controller as"?
+
+	It makes it more readable - instead of using $scope all the time, everything becomes dotted (main.title, for example), which means you can track everything back to its controller more easily.
+	"Prevents scope bleed when using multiple nested controllers"
+
+Why "var vm = this"?
+
+	Because the meaning of "this" can change depending on context...
+	"The this keyword is contextual and when used within a function inside a controller may change its context. Capturing the context of this avoids encountering this problem."
 
 
 What it does right now:

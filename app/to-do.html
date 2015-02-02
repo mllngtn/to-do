@@ -57,12 +57,36 @@
 				<span ng-show="!day.array.length">No reminders</span>
 				<ul >
 					<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time" class="item" id="{{event.text}}" draggable item="item">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
-						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
+						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>	
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						<span ng-hide="editing" ng-click="editing = true">
+							{{event.time | date: "HH:mm" }} {{event.text}}
+						</span>
+						<form class="editForm" ng-show="editing" ng-submit="editing = false">
+							  <label>Time:</label>
+							  <input class="editableEvent-time" type="time" ng-model="event.time" placeholder="{{event.time}}" min="00:00" max="23:59" ng-required/>
+							  <br/>
+							   <label>To do:</label>
+							   <input class="editableEvent" type="text" ng-model="event.text" placeholder="{{event.text}}" ng-required/>
+							   <br/>
+							   <button class="btn" type="submit">Save</button>
+						</form>
 					</li>
-					<li class="timed item" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" id="{{event.text}}" draggable item="item">
-						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
+					<li class="timed item" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" id="{{event.text}}" draggable item="item">	
 						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;					
+						<span ng-hide="editing" ng-click="editing = true">
+							{{event.time | date: "HH:mm" }} {{event.text}}
+						</span>
+						<form class="editForm" ng-show="editing" ng-submit="editing = false">
+							  <label>Time:</label>
+							  <input class="editableEvent-time" type="time" ng-model="event.time" placeholder="{{event.time}}" min="00:00" max="23:59" ng-required/>
+							  <br/>
+							   <label>To do:</label>
+							   <input class="editableEvent" type="text" ng-model="event.text" placeholder="{{event.text}}" ng-required/>
+							   <br/>
+							   <button class="btn" type="submit">Save</button>
+						</form>
 					</li>
 				</ul>	
 			</div>
