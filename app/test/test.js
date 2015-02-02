@@ -102,9 +102,7 @@ describe('removeEvent', function(){
 		when = days.array[1].day;
 								
 		$scope.delete(days.array[1], when);
-		
-		console.log(days.array);
-				
+						
 		expect(days.array.length).toEqual(2);
 		
 		expect(days.array[0].text).toBe("Do the washing up");
