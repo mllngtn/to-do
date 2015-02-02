@@ -1,16 +1,18 @@
   
-app.controller("removeEvent", function($scope, weekService){
+app.controller("removeEvent", function($scope, weekService, updateFunctions){
 
 	$scope.days = weekService.days;
-
-	$scope.delete = function(event, when) {
+	
+	$scope.removeFromArray = updateFunctions.removeFromArray;
+	
+	$scope.userDelete = function(event, when) {
 				
 		angular.forEach($scope.days, function(day) { 	
 					
 			if (when == day.name) {
+				
+				removeFromArray(day, event);
 												
-				var index = day.array.indexOf(event);
-				day.array.splice(index, 1);
 			} 	
 		});
 	}; 

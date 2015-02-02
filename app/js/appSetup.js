@@ -2,6 +2,7 @@
 var app = angular.module('app', [ ]);  
 
 app.service( 'weekService', [ '$rootScope', function( $rootScope ) {
+	
    var week = {
 	   	   
      days: [

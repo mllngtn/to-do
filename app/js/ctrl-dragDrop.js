@@ -1,8 +1,12 @@
-app.controller('DragDropCtrl', function($scope, weekService) {
+app.controller('DragDropCtrl', function($scope, weekService, updateFunctions) {
 	
 	time = '';
 			
 	$scope.days = weekService.days;
+	
+	$scope.removeFromArray = updateFunctions.removeFromArray;
+	
+	$scope.addToArray = updateFunctions.addToArray;
 	
  	$scope.handleDrop = function(item, bin) {	
 		
@@ -13,9 +17,9 @@ app.controller('DragDropCtrl', function($scope, weekService) {
 				if (item == array.text) {
 					
 					time = array.time;	
-										
-					var index = day.array.indexOf(array);
-					day.array.splice(index, 1);						
+					
+					removeFromArray(day, array);
+															
 				}				
 			})	
 		});	
@@ -25,8 +29,11 @@ app.controller('DragDropCtrl', function($scope, weekService) {
 			if (bin == day.name) {
 				
 				$scope.successMessage = "Thank you! " + bin + "'s list has been updated";
+				
+				event = {day:day, text:item, time:time};
+				
+				addToArray(day, event);
 												
-				day.array.push({day:day, text:item, time:time});
 			}	
 		});
   	}

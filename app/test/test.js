@@ -101,7 +101,7 @@ describe('removeEvent', function(){
 						
 		when = days.array[1].day;
 								
-		$scope.delete(days.array[1], when);
+		$scope.userDelete(days.array[1], when);
 						
 		expect(days.array.length).toEqual(2);
 		

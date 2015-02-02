@@ -8,6 +8,7 @@
 	<script type="text/javascript" src="angular/angular.js"></script>
 	
     <script type="text/javascript" src="js/appSetup.js"></script>
+    <script type="text/javascript" src="js/appUpdateFunctions.js"></script>
     <script type="text/javascript" src="js/ctrl-addEvent.js"></script>
     <script type="text/javascript" src="js/ctrl-removeEvent.js"></script>
     <script type="text/javascript" src="js/dir-dragDrop.js"></script>
@@ -57,11 +58,11 @@
 				<ul >
 					<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time" class="item" id="{{event.text}}" draggable item="item">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
-						<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>
+						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
 					</li>
 					<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" class="item" id="{{event.text}}" draggable item="item">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
-						<button ng-controller="removeEvent" ng-click="delete(event, day.name)">x</button>
+						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
 					</li>
 				</ul>	
 			</div>
