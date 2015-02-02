@@ -47,7 +47,15 @@ h4 {
 
 .drag {
 	opacity:0.7;
-	background-color:#f6edf3;
+	cursor:grabbing;
+	cursor:-moz-grabbing;
+	cursor:-webkit-grabbing;
+}
+
+.item {
+	cursor:grabbing;
+	cursor:-moz-grabbing;
+	cursor:-webkit-grabbing;
 }
 
 .day {

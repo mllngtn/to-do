@@ -48,7 +48,7 @@
 			{{successMessage}}
 	    </form>
 				
-		<div id class="day" ng-repeat="day in days" ng-controller="DragDropCtrl">
+		<div id class="day" ng-repeat="day in days" ng-controller="dragDropCtrl">
 			
 			<div class="bin" droppable drop="handleDrop" bin="bin" id="{{day.name}}" >
 				
@@ -60,14 +60,13 @@
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.text}}
 						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
 					</li>
-					<li class="timed" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" class="item" id="{{event.text}}" draggable item="item">
+					<li class="timed item" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" id="{{event.text}}" draggable item="item">
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{event.time | date: "HH:mm" }} {{event.text}}
 						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
 					</li>
 				</ul>	
 			</div>
-		</div>
-						
+		</div>				
 </body>
 
 </html>

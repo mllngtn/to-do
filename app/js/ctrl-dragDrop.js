@@ -1,4 +1,4 @@
-app.controller('DragDropCtrl', function($scope, weekService, updateFunctions) {
+app.controller('dragDropCtrl', function($scope, weekService, updateFunctions) {
 	
 	time = '';
 			
@@ -24,16 +24,16 @@ app.controller('DragDropCtrl', function($scope, weekService, updateFunctions) {
 			})	
 		});	
 			
-		angular.forEach($scope.days, function(day) { 			
-				
+		angular.forEach($scope.days, function(day) { 	
+								
 			if (bin == day.name) {
-				
-				$scope.successMessage = "Thank you! " + bin + "'s list has been updated";
-				
+			 								
 				event = {day:day, text:item, time:time};
 				
 				addToArray(day, event);
-												
+				
+				$scope.successMessage = "Thank you! " + bin + "'s list has been updated";
+													
 			}	
 		});
   	}
