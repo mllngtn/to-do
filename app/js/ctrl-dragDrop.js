@@ -1,7 +1,7 @@
 app.controller('DragDropCtrl', function($scope, weekService) {
 	
-	var time = '';
-	
+	time = '';
+			
 	$scope.days = weekService.days;
 	
  	$scope.handleDrop = function(item, bin) {	
@@ -15,20 +15,19 @@ app.controller('DragDropCtrl', function($scope, weekService) {
 					time = array.time;	
 										
 					var index = day.array.indexOf(array);
-					day.array.splice(index, 1);
-										
+					day.array.splice(index, 1);						
 				}				
 			})	
-				
 		});	
 			
 		angular.forEach($scope.days, function(day) { 			
 				
 			if (bin == day.name) {
-								
+				
+				$scope.successMessage = "Thank you! " + bin + "'s list has been updated";
+												
 				day.array.push({day:day, text:item, time:time});
 			}	
-			
 		});
   	}
 });
