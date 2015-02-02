@@ -144,6 +144,10 @@ li {
 	padding-bottom:0;
 }
 
+.editable {
+	cursor:text;
+}
+
 li button {
 	float:right;
 	margin-top:-0.5em;

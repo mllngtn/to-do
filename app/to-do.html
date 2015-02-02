@@ -59,7 +59,7 @@
 					<li ng-repeat="event in day.array | orderBy:['text'] " ng-show="!event.time" class="item" id="{{event.text}}" draggable item="item">
 						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>	
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						<span ng-hide="editing" ng-click="editing = true">
+						<span class="editable" ng-hide="editing" ng-click="editing = true">
 							{{event.time | date: "HH:mm" }} {{event.text}}
 						</span>
 						<form class="editForm" ng-show="editing" ng-submit="editing = false">
@@ -75,7 +75,7 @@
 					<li class="timed item" ng-repeat="event in day.array | orderBy:['time']" ng-show="event.time" id="{{event.text}}" draggable item="item">	
 						<button ng-controller="removeEvent" ng-click="userDelete(event, day.name)">x</button>
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;					
-						<span ng-hide="editing" ng-click="editing = true">
+						<span class="editable" ng-hide="editing" ng-click="editing = true">
 							{{event.time | date: "HH:mm" }} {{event.text}}
 						</span>
 						<form class="editForm" ng-show="editing" ng-submit="editing = false">
